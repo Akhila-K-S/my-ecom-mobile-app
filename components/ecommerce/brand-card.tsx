@@ -1,6 +1,6 @@
-import { Image } from 'expo-image';
 import { Pressable, Text } from 'react-native';
 
+import { RemoteImage } from '@/components/remote-image';
 import type { Brand } from '@/constants/shops';
 import { useThemedStyles } from '@/hooks/use-app-theme';
 
@@ -38,7 +38,7 @@ export function BrandCard({ brand }: BrandCardProps) {
 
   return (
     <Pressable style={styles.card}>
-      <Image source={{ uri: brand.logo }} style={styles.logo} contentFit="cover" />
+      <RemoteImage uri={brand.logo} style={styles.logo} contentFit="cover" />
       <Text style={styles.name} numberOfLines={1}>
         {brand.name}
       </Text>

@@ -1,7 +1,7 @@
-import { Image } from 'expo-image';
 import { Pressable, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import { RemoteImage } from '@/components/remote-image';
 import type { Product } from '@/constants/products';
 import { useAppTheme, useThemedStyles } from '@/hooks/use-app-theme';
 
@@ -66,7 +66,7 @@ export function ProductCard({ product, width }: ProductCardProps) {
 
   return (
     <Pressable style={[styles.card, width ? { width } : undefined]}>
-      <Image source={{ uri: product.image }} style={styles.image} contentFit="cover" />
+      <RemoteImage uri={product.image} style={styles.image} contentFit="cover" />
       <View style={styles.info}>
         <Text style={styles.category}>{product.category}</Text>
         <Text style={styles.name} numberOfLines={2}>

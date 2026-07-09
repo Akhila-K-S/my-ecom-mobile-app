@@ -1,7 +1,7 @@
-import { Image } from 'expo-image';
 import { Pressable, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import { RemoteImage } from '@/components/remote-image';
 import type { CartItem } from '@/constants/cart';
 import { useAppTheme, useThemedStyles } from '@/hooks/use-app-theme';
 
@@ -99,7 +99,7 @@ export function CartItemRow({ item, onIncrease, onDecrease, onRemove }: CartItem
 
   return (
     <View style={styles.row}>
-      <Image source={{ uri: item.product.image }} style={styles.image} contentFit="cover" />
+      <RemoteImage uri={item.product.image} style={styles.image} contentFit="cover" />
       <View style={styles.info}>
         <View style={styles.topRow}>
           <Text style={styles.shopName}>{item.shopName}</Text>

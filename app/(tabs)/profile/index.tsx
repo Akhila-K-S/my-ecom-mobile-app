@@ -1,9 +1,9 @@
-import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { Pressable, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
+import { RemoteImage } from '@/components/remote-image';
 import { ProfileMenuRow } from '@/components/ecommerce/profile-menu-row';
 import {
   ACCOUNT_MENU,
@@ -161,7 +161,7 @@ export default function ProfileScreen() {
         </View>
 
         <View style={styles.profileCard}>
-          <Image source={{ uri: USER_PROFILE.avatar }} style={styles.avatar} contentFit="cover" />
+          <RemoteImage uri={USER_PROFILE.avatar} style={styles.avatar} contentFit="cover" />
           <View style={styles.profileInfo}>
             <Text style={styles.name}>{USER_PROFILE.name}</Text>
             <Text style={styles.email}>{USER_PROFILE.email}</Text>

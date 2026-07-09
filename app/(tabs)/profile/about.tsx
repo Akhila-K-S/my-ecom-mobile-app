@@ -41,6 +41,13 @@ export default function AboutScreen() {
       marginTop: 8,
       paddingHorizontal: 20,
     },
+    banner: {
+      width: '100%',
+      height: 160,
+      borderRadius: 14,
+      marginBottom: 24,
+      backgroundColor: c.imagePlaceholder,
+    },
     linksCard: {
       backgroundColor: c.surface,
       borderRadius: 14,
@@ -76,13 +83,19 @@ export default function AboutScreen() {
           style={styles.logo}
           contentFit="contain"
         />
-        <Text style={styles.appName}>dev-my-app</Text>
+        <Text style={styles.appName}>Shopiee</Text>
         <Text style={styles.version}>Version 1.0.0</Text>
         <Text style={styles.description}>
           Your one-stop marketplace to discover shops, browse products, and shop from your favorite
           brands.
         </Text>
       </View>
+
+      <Image
+        source={require('@/assets/images/about-ecommerce.png')}
+        style={styles.banner}
+        contentFit="cover"
+      />
 
       <View style={styles.linksCard}>
         {LINKS.map((link, index) => (
@@ -95,7 +108,7 @@ export default function AboutScreen() {
         ))}
       </View>
 
-      <Text style={styles.copyright}>© 2026 dev-my-app. All rights reserved.</Text>
+      <Text style={styles.copyright}>© 2026 Shopiee. All rights reserved.</Text>
     </ProfileScreenLayout>
   );
 }

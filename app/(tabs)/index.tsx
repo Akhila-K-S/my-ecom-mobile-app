@@ -1,8 +1,8 @@
-import { Image } from 'expo-image';
 import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
+import { RemoteImage } from '@/components/remote-image';
 import { CategoryChip } from '@/components/ecommerce/category-chip';
 import { ProductCard } from '@/components/ecommerce/product-card';
 import { CATEGORIES, FEATURED_PRODUCTS, NEW_ARRIVALS } from '@/constants/products';
@@ -185,10 +185,8 @@ export default function HomeScreen() {
         </View>
 
         <View style={styles.banner}>
-          <Image
-            source={{
-              uri: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&h=400&fit=crop',
-            }}
+          <RemoteImage
+            uri="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&h=400&fit=crop"
             style={styles.bannerImage}
             contentFit="cover"
           />

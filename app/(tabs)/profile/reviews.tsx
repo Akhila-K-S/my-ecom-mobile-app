@@ -1,7 +1,7 @@
-import { Image } from 'expo-image';
 import { Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import { RemoteImage } from '@/components/remote-image';
 import { ProfileScreenLayout } from '@/components/ecommerce/profile-screen-layout';
 import { USER_REVIEWS } from '@/constants/profile-data';
 import { useAppTheme, useThemedStyles } from '@/hooks/use-app-theme';
@@ -57,7 +57,7 @@ export default function ReviewsScreen() {
       {USER_REVIEWS.map((review) => (
         <View key={review.id} style={styles.card}>
           <View style={styles.cardHeader}>
-            <Image source={{ uri: review.productImage }} style={styles.image} contentFit="cover" />
+            <RemoteImage uri={review.productImage} style={styles.image} contentFit="cover" />
             <View style={styles.headerInfo}>
               <Text style={styles.productName}>{review.productName}</Text>
               <View style={styles.stars}>

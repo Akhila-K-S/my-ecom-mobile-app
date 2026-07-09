@@ -1,6 +1,6 @@
-import { Image } from 'expo-image';
 import { Text, View } from 'react-native';
 
+import { RemoteImage } from '@/components/remote-image';
 import { ProfileScreenLayout } from '@/components/ecommerce/profile-screen-layout';
 import type { AppColors } from '@/constants/theme';
 import { ORDERS } from '@/constants/profile-data';
@@ -105,7 +105,7 @@ export default function OrdersScreen() {
               </View>
             </View>
             <View style={styles.cardBody}>
-              <Image source={{ uri: order.image }} style={styles.image} contentFit="cover" />
+              <RemoteImage uri={order.image} style={styles.image} contentFit="cover" />
               <View style={styles.details}>
                 <Text style={styles.shop}>{order.shopName}</Text>
                 <Text style={styles.items}>

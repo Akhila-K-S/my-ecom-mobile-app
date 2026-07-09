@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Image } from 'expo-image';
 import { Pressable, Text, TextInput, View } from 'react-native';
 
+import { RemoteImage } from '@/components/remote-image';
 import { ProfileScreenLayout } from '@/components/ecommerce/profile-screen-layout';
 import { USER_PROFILE } from '@/constants/user';
 import { useAppTheme, useThemedStyles } from '@/hooks/use-app-theme';
@@ -48,7 +48,7 @@ export default function EditProfileScreen() {
   return (
     <ProfileScreenLayout title="Edit Profile">
       <View style={styles.avatarSection}>
-        <Image source={{ uri: USER_PROFILE.avatar }} style={styles.avatar} contentFit="cover" />
+        <RemoteImage uri={USER_PROFILE.avatar} style={styles.avatar} contentFit="cover" />
         <Pressable>
           <Text style={styles.changePhoto}>Change photo</Text>
         </Pressable>

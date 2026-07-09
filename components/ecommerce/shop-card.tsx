@@ -1,7 +1,7 @@
-import { Image } from 'expo-image';
 import { Pressable, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import { RemoteImage } from '@/components/remote-image';
 import type { Shop } from '@/constants/shops';
 import { useAppTheme, useThemedStyles } from '@/hooks/use-app-theme';
 
@@ -104,9 +104,9 @@ export function ShopCard({ shop }: ShopCardProps) {
 
   return (
     <Pressable style={styles.card}>
-      <Image source={{ uri: shop.coverImage }} style={styles.cover} contentFit="cover" />
+      <RemoteImage uri={shop.coverImage} style={styles.cover} contentFit="cover" />
       <View style={styles.body}>
-        <Image source={{ uri: shop.logo }} style={styles.logo} contentFit="cover" />
+        <RemoteImage uri={shop.logo} style={styles.logo} contentFit="cover" />
         <View style={styles.info}>
           <View style={styles.nameRow}>
             <Text style={styles.name}>{shop.name}</Text>
