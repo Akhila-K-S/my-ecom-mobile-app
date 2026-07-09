@@ -1,33 +1,54 @@
 import { Tabs } from 'expo-router';
-import React from 'react';
+import { Ionicons } from '@expo/vector-icons';
 
 import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useAppTheme } from '@/hooks/use-app-theme';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const { colors } = useAppTheme();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: colors.tabActive,
+        tabBarInactiveTintColor: colors.tabInactive,
         headerShown: false,
         tabBarButton: HapticTab,
+        tabBarStyle: {
+          backgroundColor: colors.tabBar,
+          borderTopColor: colors.tabBarBorder,
+        },
       }}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color, size }) => <Ionicons name="home-outline" size={size} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="shop"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Shop',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="grid-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="cart"
+        options={{
+          title: 'Cart',
+          tabBarIcon: ({ color, size }) => <Ionicons name="bag-outline" size={size} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person-outline" size={size} color={color} />
+          ),
         }}
       />
     </Tabs>
